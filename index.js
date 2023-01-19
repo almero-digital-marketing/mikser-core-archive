@@ -35,7 +35,7 @@ onPersist(async () => {
 
         const operations = useOperations([constants.OPERATION_CREATE, constants.OPERATION_UPDATE, constants.OPERATION_DELETE])
         .filter(({ entity }) => {
-            return entity.meta && _.matches(entity, match)
+            return entity.meta && _.isMatch(entity, match)
         })
 
         for (let { operation, entity } of operations) {
